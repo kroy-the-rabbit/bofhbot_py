@@ -8,5 +8,6 @@ class Bofhoutput():
 
     def send(self,output):
         output = output.replace('@everyone', '@\u200beveryone')
+        output = output.replace('@here', '@\u200bhere')
         return self.ctx.send(output)
 
