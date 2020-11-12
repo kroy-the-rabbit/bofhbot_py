@@ -7,9 +7,13 @@ class RNG(commands.Cog):
 
     @commands.command(name='flip',description='Flip a coin with optional number of times (default 1)')
     @commands.guild_only()
-    async def flip(sync,ctx,times : int = 1):
+    async def flip(sync,ctx,limit : int = 1):
         roll_history = []
-        for i in range(times):
+        if limit > 1000000:
+            limit = 1000000
+        if limit < 0:
+            limit = 1
+        for i in range(limit):
             flip = random.randint(0,1)
             if flip == 0:
                 roll_history.append("Heads")
@@ -25,6 +29,14 @@ class RNG(commands.Cog):
     async def roll(self, ctx, dice : str = '1d6'):
         try:
             rolls, limit = map(int, dice.split('d'))
+            if rolls > 1000000:
+                rolls = 1000000
+            if limit > 1000000:
+                limit = 1000000
+            if rolls < 0:
+                rolls = 1
+            if limit < 1
+                limit = 6
         except Exception:
             await ctx.send('Format has to be in NdN format (eg: 1d6)!')
             return
