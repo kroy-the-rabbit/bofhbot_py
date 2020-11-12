@@ -10,6 +10,7 @@ class LMGTFY(commands.Cog):
     @commands.command(name='lmgtfy',description='Be passive aggressive')
     @commands.guild_only()
     async def lmgtfy(self, ctx, *term : str):
+        out = Bofhoutput.Bofhoutput(ctx)
         try:
             '''
             https://lmgtfy.app/q=asdf
@@ -23,12 +24,12 @@ class LMGTFY(commands.Cog):
                 url=link,
                 description='There is this amazing resource named "Google".  I\'ve done the hard work for you, now all you need to do is click the link.'
             )
-            await ctx.send(embed=embedVar)
+            await out.send(embed=embedVar)
             return
         except Exception as e:
-            await ctx.send('You must supply a search term {}'.format(str(e)))
+            await out.send('You must supply a search term {}'.format(str(e)))
             return
-        await ctx.send('You must supply a search term')
+        await out.send('You must supply a search term')
 
 
 def setup(bot):
