@@ -2,6 +2,7 @@ import random
 from discord.ext import commands
 from discord.embeds import Embed
 import urllib.parse
+from helpers import Bofhoutput
 
 class LMGTFY(commands.Cog):
     def __init__(self, bot):
