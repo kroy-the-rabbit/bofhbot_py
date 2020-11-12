@@ -20,7 +20,7 @@ class RNG(commands.Cog):
             else:
                 roll_history.append("Tails")
 
-        result = "Flips: {}\nHeads: {}\nTails{}".format(times, roll_history.count("Heads"), roll_history.count("Tails"))
+        result = "Flips: {}\nHeads: {}\nTails{}".format(limit, roll_history.count("Heads"), roll_history.count("Tails"))
 
         await ctx.send(result)
 
