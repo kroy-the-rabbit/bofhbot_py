@@ -6,7 +6,7 @@ class Bofhoutput():
         self.ctx = ctx
 
 
-    def dropItHot(self,output):
+    def send(self,output):
         output = output.replace('@everyone', '@\u200beveryone')
         return self.ctx.send(output)
 
