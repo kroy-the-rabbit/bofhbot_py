@@ -1,5 +1,6 @@
 import random
 from discord.ext import commands
+from helpers import Bofhoutput
 
 class RNG(commands.Cog):
     def __init__(self, bot):
@@ -47,12 +48,15 @@ class RNG(commands.Cog):
     @commands.command(name='choose',description='Choose between multiple items')
     @commands.guild_only()
     async def choose(self, ctx, *choices : str):
+        out = Bofhoutput.Bofhoutput(ctx)
         try:
             choice = random.choice(choices)
         except Exception:
-            await ctx.send('You must supply something to choose from!')
+            await out.dropItHot('You must supply something to choose from!')
             return
-        await ctx.send(random.choice(choices))
+
+        chosen = random.choice(choices)
+        await out.dropItHot(chosen)
 
 
 def setup(bot):
