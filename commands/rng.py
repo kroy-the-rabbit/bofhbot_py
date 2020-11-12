@@ -32,8 +32,8 @@ class RNG(commands.Cog):
         out = Bofhoutput.Bofhoutput(ctx)
         try:
             rolls, limit = map(int, dice.split('d'))
-            if rolls > 1000000:
-                rolls = 1000000
+            if rolls > 25:
+                rolls = 25
             if limit > 1000000:
                 limit = 1000000
             if rolls < 1:
