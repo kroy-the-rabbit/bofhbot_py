@@ -11,7 +11,7 @@ class RNG(commands.Cog):
         roll_history = []
         if limit > 1000000:
             limit = 1000000
-        if limit < 0:
+        if limit < 1:
             limit = 1
         for i in range(limit):
             flip = random.randint(0,1)
@@ -33,9 +33,9 @@ class RNG(commands.Cog):
                 rolls = 1000000
             if limit > 1000000:
                 limit = 1000000
-            if rolls < 0:
+            if rolls < 1:
                 rolls = 1
-            if limit < 1
+            if limit < 1:
                 limit = 6
         except Exception:
             await ctx.send('Format has to be in NdN format (eg: 1d6)!')
